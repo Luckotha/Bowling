@@ -1,17 +1,39 @@
-import java.util.HashMap; 
-import java.util.Map; 
-import java.util.Scanner; 
-public class Bowling { 	
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-        public static <K, V extends Comparable<V>> Map.Entry<K, V> getMaxEntryInMapBasedOnValue(Map<K, V> map) { 		
-        Map.Entry<K, V> entryWithMaxValue = null; 		
-        for (Map.Entry<K, V> currentEntry : map.entrySet()) { 			
-        if (entryWithMaxValue == null || currentEntry.getValue().compareTo(entryWithMaxValue.getValue()) > 0) { 				
-        entryWithMaxValue = currentEntry; 			} 		} 		  return entryWithMaxValue; 	} 	
-        public static void print(Map<String, Integer> map) { 		System.out.print("Map: "); 		if (map.isEmpty()) { 			System.out.println("[]"); 		} 
-        else { 			
-            System.out.println(map); 		} 	} 	
-       public static void main(String[] args) { 		Map<String, Integer> map = new HashMap<>(); 		
-       map.put("John", 100); 		
-       map.put("James", 55); 		
-       map.put("Julie", 98);	System.out.println(getMaxEntryInMapBasedOnValue(map)); 	} }
+public class Bowling {
+
+	public static <K, V extends Comparable<V>> Map.Entry<K, V> getMaxEntryInMapBasedOnValue(Map<K, V> map) {
+		Map.Entry<K, V> entryWithMaxValue = null;
+		for (Map.Entry<K, V> currentEntry : map.entrySet()) {
+			if (entryWithMaxValue == null || currentEntry.getValue().compareTo(entryWithMaxValue.getValue()) > 0) {
+				entryWithMaxValue = currentEntry;
+			}
+		} // end loop
+
+		// display the KEY ONLY which has maximum VALUE
+		System.out.print(entryWithMaxValue.getKey());
+		return entryWithMaxValue;
+	}// end method
+
+	public static void print(Map<String, Integer> map) {
+		System.out.print("Map: ");
+		if (map.isEmpty()) {
+			System.out.println("[]");
+		} else {
+			System.out.println(map);
+		}
+	}
+
+	public static void main(String[] args) {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("John", 100);
+		map.put("James", 55);
+		map.put("Julie", 98);
+
+		getMaxEntryInMapBasedOnValue(map);
+
+		System.out.print("\n\n");
+	}// end main
+}// end class
